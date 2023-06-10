@@ -12,4 +12,20 @@ class ApiController extends Controller
     {
         return (new MovieService())->createMovies($request->title);
     }
+
+    public function getMovies(): JsonResponse
+    {
+        $movies = (new MovieService())->getAllMovies();
+        return response()->json(
+            [['success' => 'success',
+                'movies' => $movies], 200
+            ]
+        );
+    }
+
+    public function deleteMovies(): JsonResponse
+    {
+         (new MovieService())->deleteMovies();
+        return response()->json(['success' => 'success', 200]);
+    }
 }
