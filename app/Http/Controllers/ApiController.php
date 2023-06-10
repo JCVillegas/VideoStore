@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MoviePostRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-
+use App\Services\MovieService;
+use Illuminate\Http\JsonResponse;
 
 class ApiController extends Controller
 {
-    public function createMovie(Request $request): RedirectResponse
+    public function createMovie(MoviePostRequest $request): JsonResponse
     {
-        $name = $request->input('name');
+        return (new MovieService())->createMovies($request->title);
     }
 }
