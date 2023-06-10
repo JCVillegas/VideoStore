@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('movie', function(Request $request) {
-    return Article::create($request->all);
+    return (new App\Http\Controllers\ApiController())->createMovie($request->all);
 });
