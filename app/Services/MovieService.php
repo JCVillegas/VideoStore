@@ -13,9 +13,21 @@ class MovieService
     // Public Methods
     public function createMovies($movieTitle): JsonResponse
     {
-        //todo validate movieTitle.
         return $this->createMovie($movieTitle);
     }
+
+    public function getAllMovies(): array
+    {
+        $movieCounter = $this->getMovieCounter();
+        $movieArray   = range(0, $movieCounter - 1);
+        foreach ($movieArray as $movieNumber) {
+            $movieKey                  = self::KEY_MOVIE_NUMBER . $movieNumber + 1;
+            $movie                     =  $this->getMovie($movieKey);
+            $movieArray [$movieNumber] = $movie;
+        }
+        return $movieArray;
+    }
+
 
     // Private Methods
 
@@ -29,18 +41,6 @@ class MovieService
         ];
         Cache::add($newMovieKey, $newMovieValue);
         return response()->json(['success' => 'success', 200]);
-    }
-
-    private function getAllMovies(): array
-    {
-        $movieCounter = $this->getMovieCounter();
-        $movieArray   = range(0, $movieCounter - 1);
-        foreach ($movieArray as $movieNumber) {
-            $movieKey                  = self::KEY_MOVIE_NUMBER . $movieNumber + 1;
-            $movie                     =  $this->getMovie($movieKey);
-            $movieArray [$movieNumber] = $movie;
-        }
-        return $movieArray;
     }
 
     private function getMovie($movieKey): array
