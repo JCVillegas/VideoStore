@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('movie', [ApiController::class, 'createMovie']);
-Route::post('movie/{movieId}/likes', [ApiController::class, 'addMovieLike']);
-
-Route::get('movies', [ApiController::class, 'getMovies']);
-Route::delete('movies', [ApiController::class, 'deleteMovies']);
+Route::controller(ApiController::class)->group(function () {
+    Route::post('movie/{movieId}/likes', 'addMovieLike');
+    Route::post('movie', 'createMovie');
+    Route::get('movies', 'getMovies');
+    Route::delete('movies', 'deleteMovies');
+});
