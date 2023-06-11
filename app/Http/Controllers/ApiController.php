@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 
 class ApiController extends Controller
 {
-    public function addMovieLike($movieId): JsonResponse
+    public function addMovieLike(MoviePostLikeRequest $movieId): JsonResponse
     {
         (new MovieService())->addMovieLikes($movieId);
 
