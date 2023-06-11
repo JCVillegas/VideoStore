@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('movie', [ApiController::class, 'createMovie']);
+Route::get('movies', [ApiController::class, 'getMovies']);
+
+Route::delete('movies', [ApiController::class, 'deleteMovies']);
