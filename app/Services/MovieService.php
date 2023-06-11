@@ -16,6 +16,15 @@ class MovieService
         return $this->createMovie($movieTitle);
     }
 
+
+    public function addMovieLikes($movieKeyId): void
+    {
+        $movieKey = self::KEY_MOVIE_NUMBER . $movieKeyId;
+        $movie    = $this->getMovie($movieKey);
+        $movie['likes'] += 1;
+        $this->updateMovie($movieKey, $movie);
+    }
+
     public function deleteMovies(): void
     {
         for ($i = 1; $i <= $this->getMovieCounter(); $i++) {
@@ -78,5 +87,10 @@ class MovieService
     private function incrementMovieCounter(): void
     {
         Cache::increment(self::KEY_MOVIE_COUNTER);
+    }
+
+    private function updateMovie($movieKey, $movie): void
+    {
+        Cache::put($movieKey, $movie);
     }
 }
