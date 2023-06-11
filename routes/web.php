@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/videoCatalog', function () {
-    return view('newMovie');
-});
+Route::view('/', 'welcome');
+Route::view('/videoCatalog', 'viewMovieCatalog');
+Route::view('/newMovie', 'newMovie');
