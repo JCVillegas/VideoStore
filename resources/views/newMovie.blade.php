@@ -20,11 +20,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Movie Name:</label>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <input type="text" id="title" class="form-control" placeholder="Name">
                 </div>
-                <div class="alert alert-danger" role="alert">
-
-                </div>
+                <div id="alertSuccess" class="alert alert-primary" role="alert"></div>
+                <div id="alertError" class="alert alert-danger" role="alert"> </div>
                 <div class="mb-3 text-center">
                     <button class="btn btn-success btn-submit">Submit</button>
                 </div>
@@ -37,24 +36,39 @@
 </body>
 </html>
 <script type="text/javascript">
+    clearAlertBox();
     $('#ajax-form').submit(function(e) {
         e.preventDefault();
 
-        var url = $(this).attr("action");
-        let formData = new FormData(this);
+        let url = $(this).attr("action");
+        let formData = { 'title':  $('#title').val()};
 
-        $.ajax({
+        $.post({
             type:'POST',
+            dataType : 'json',
+            data: JSON.stringify(formData),
+            contentType: "application/json",
             url: url,
-            data: formData,
-            contentType: false,
             processData: false,
 
             success: (response) => {
-                alert(response.error.title);
+                clearAlertBox();
+                if (!response.success)
+                {
+                    $('#alertError').show();
+                    $("#alertError").append(response.error.title);
+                }
+
 
             },
 
         });
     });
+
+    function clearAlertBox()
+    {
+        $('#alertSuccess').hide();
+        $('#alertError').hide();
+        $("#alertError").empty();
+    }
 </script>
