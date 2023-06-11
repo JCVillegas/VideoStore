@@ -19,7 +19,8 @@ class ValidateMovieRule implements ValidationRule
         $movies = (new MovieService())->getAllMovies($value);
         foreach ($movies as $movieKey => $movieValue) {
             if ($value === $movieValue['title']) {
-                $fail('Movie title is duplicated.');
+                 $fail('Movie title is duplicated.');
+                 break;
             }
         }
     }
