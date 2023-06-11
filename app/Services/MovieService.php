@@ -50,6 +50,11 @@ class MovieService
         return $movieArray;
     }
 
+    public function getMovie($movieKey): array | int
+    {
+        return Cache::get($movieKey, 0);
+    }
+
 
     // Private Methods
 
@@ -72,11 +77,6 @@ class MovieService
     private function deleteMovie($movieKey): void
     {
         Cache::delete($movieKey);
-    }
-
-    private function getMovie($movieKey): array
-    {
-        return Cache::get($movieKey, 0);
     }
 
     private function getMovieCounter(): int
