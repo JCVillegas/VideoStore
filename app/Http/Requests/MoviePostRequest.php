@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\ValidateMovieRule;
+use App\Rules\ValidateMovieDuplicatedRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -18,7 +18,7 @@ class MoviePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'   => ['required', new ValidateMovieRule()]
+            'title'   => ['required', new ValidateMovieDuplicatedRule()]
         ];
     }
 
