@@ -37,7 +37,6 @@ class MovieService
             $movie                     =  $this->getMovie($movieKey);
             $movieArray [$movieNumber] = $movie;
         }
-        $movieArray ['movieCounter'] = $movieCounter;
 
         return $movieArray;
     }
