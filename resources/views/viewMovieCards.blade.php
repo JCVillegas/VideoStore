@@ -12,19 +12,26 @@
         <div class="card-header">
             @include('nav-bar')
         </div>
-        @foreach ($movies as $movie)
-            <div class="card-deck">
-                <div class="card text-center" style="width: 10rem;">
-                    <div class="card-header">{{ $movie['title']}}</div>
+            @php
+            $i=0;
+            $rows=3;
+            @endphp
+            @foreach ( $movies as $movie )
+                @php $i++; @endphp
+                @if ( $i == 1  || $i == $rows * 2 )
+                   <div class="card-group">
+                @endif
+               <div class="card text-center" style="width: 10rem;">
+                    <div class="card-header">{{$movie['title'] }}</div>
                     <div class="card-body">
                         <a href="#" class="btn btn-primary">Likes {{ $movie['likes']}}</a>
                     </div>
                 </div>
-            </div>
-        @endforeach
-            <div class="alert alert-danger print-error-msg" style="display:none"></div>
-            <div id="alertSuccess" class="alert alert-primary" role="alert"></div>
-            <div id="alertError" class="alert alert-danger" role="alert"> </div>
+                @if ( $i == ($rows) )
+                </div>
+                @php $i = 0; @endphp
+                @endif
+            @endforeach
     </div>
 </div>
 </body>
