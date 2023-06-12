@@ -6,7 +6,7 @@
                     <a class="nav-link" href="{{ env('APP_URL') . '/' }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ env('APP_URL') . '/videoMovieCards' }}">Video Movie Cards</a>
+                    <a class="nav-link" href="{{ env('APP_URL') . '/movieCards' }}">Movie Cards</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ env('APP_URL') . '/newMovie' }}">New Movie</a>
