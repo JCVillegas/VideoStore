@@ -10,7 +10,7 @@ Rest API Video Content Challenge
 
 Before installing, check if you already have one of the components installed by typing:
 ```bash
-php -V
+php -v
 ```
 ```bash
 composer -V
@@ -42,10 +42,15 @@ brew install git
 ```
 4. Clone this repo in your preferred directory, copy & paste in your terminal:
 ```bash
-git clone git@github.com:JCVillegas/VideoStore.git
+git clone https://github.com/JCVillegas/VideoStore.git
 ```
 
-4. **cd** into your working directory and initiate the web server, copy & paste in your terminal:
+5. **cd** into the VideoStore directory and run composer:
+```bash
+6. composer install
+```
+
+4. Inside the VideoStore directory  initiate the web server, copy & paste in your terminal:
 ```bash
 php artisan serve
 ```
