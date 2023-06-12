@@ -15,6 +15,7 @@ class MovieService
         $this->incrementMovieCounter();
         $newMovieKey   = self::KEY_MOVIE_NUMBER . $this->getMovieCounter();
         $newMovieValue = [
+            'id'    => $this->getMovieCounter(),
             'title' => $movieTitle,
             'likes' => 0
         ];
