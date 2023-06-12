@@ -22,9 +22,11 @@
                    <div class="card-group">
                 @endif
                <div class="card text-center" style="width: 10rem;">
-                    <div class="card-header">{{$movie['title'] }}</div>
+                    <div class="card-header">{{$movie['title']}}</div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Likes {{ $movie['likes']}}</a>
+                        <button type="button" id ="{{$movie['id']}}" class="btn btn-primary btn-sm">
+                            <span class="badge badge-light">Likes {{ $movie['likes']}}</span>
+                        </button>
                     </div>
                 </div>
                 @if ( $i == ($rows) )
@@ -39,16 +41,16 @@
 
 <script type="text/javascript">
     clearAlertBox();
-    $('#ajax-form').submit(function(e) {
+    $('button').click(function(e) {
         e.preventDefault();
-
-        let url = $(this).attr("action");
-        let formData = { 'title':  $('#title').val()};
+        let movieId = $(this).attr('id');
+        let url     = '{{ route('movie.addMovieLike') }}';
+        let data    =  { 'movieId': movieId };
 
         $.post({
             type:'POST',
             dataType : 'json',
-            data: JSON.stringify(formData),
+            data: JSON.stringify(data),
             contentType: "application/json",
             url: url,
             processData: false,
