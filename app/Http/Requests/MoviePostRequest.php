@@ -18,7 +18,7 @@ class MoviePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'   => ['required', new ValidateMovieDuplicatedRule()]
+            'title'   => ['required','max:50', new ValidateMovieDuplicatedRule()]
         ];
     }
 
