@@ -19,35 +19,35 @@ composer -V
 git -V
 ```
 
-In case you don't, you can use [Homebrew](https://brew.sh/) (package manager for Mac) to install PHP & Composer
+In case you don't, you can use [Homebrew](https://brew.sh/) (package manager for Mac) to install all requirements.
 
-1. To install Homebrew copy & paste  in your terminal:
+1. To install Homebrew copy & paste in your terminal:
 ```bash
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-2. To install PHP copy & paste  in your terminal:
+2. To install PHP copy & paste in your terminal:
 ```bash
-$ brew install php
+brew install php
 ```
 
-3. To install Composer copy & paste  in your terminal:
+3. To install Composer copy & paste in your terminal:
 ```bash
-$ brew install composer
+brew install composer
 ```
 
-3. To install Git copy & paste  in your terminal:
+3. To install Git copy & paste in your terminal:
 ```bash
-$ brew install git
+brew install git
 ```
-4. Clone this repo in your preferred directory, copy & paste  in your terminal:
+4. Clone this repo in your preferred directory, copy & paste in your terminal:
 ```bash
-$ git clone git@github.com:JCVillegas/VideoStore.git
+git clone git@github.com:JCVillegas/VideoStore.git
 ```
 
-4. **cd** into your working directory and initiate the web server, copy & paste  in your terminal:
+4. **cd** into your working directory and initiate the web server, copy & paste in your terminal:
 ```bash
-$ php artisan serve
+php artisan serve
 ```
 
 5. That is it. Enjoy!
