@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MoviePostLikeRequest;
 use App\Http\Requests\MoviePostRequest;
 use App\Services\MovieService;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
 class ApiController extends Controller
