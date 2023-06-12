@@ -36,13 +36,33 @@
             @endforeach
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            </div>
+            <div id="alertMessage" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="okButton" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
 <script type="text/javascript">
-    clearAlertBox();
     $('button').click(function(e) {
         e.preventDefault();
+        if ($(this).attr('id') === 'okButton')
+        {
+            location.reload();
+        }
+        $('#myModal').modal('show');
         let movieId = $(this).attr('id');
         let url     = '{{ route('movie.addMovieLike') }}';
         let data    =  { 'movieId': movieId };
@@ -56,29 +76,16 @@
             processData: false,
 
             success: (response) => {
-                clearAlertBox();
+
                 if (!response.success)
                 {
-                    $('#alertError').show();
-                    $("#alertError").append(response.error.title);
+                    $("#alertMessage").append(response.error.movieId);
                 }
                 else
                 {
-                    $('#alertSuccess').show();
-                    $("#alertSuccess").append(response.message);
+                    $("#alertMessage").append(response.message);
                 }
-
-
             },
-
         });
     });
-
-    function clearAlertBox()
-    {
-        $('#alertSuccess').hide();
-        $("#alertSuccess").empty();
-        $('#alertError').hide();
-        $("#alertError").empty();
-    }
 </script>
