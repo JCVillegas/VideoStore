@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
-Route::view('/movieCards', 'viewMovieCards');
 Route::view('/newMovie', 'newMovie');
+Route::get('movieCards', [WebController::class, 'getMovies']);
