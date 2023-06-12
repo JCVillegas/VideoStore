@@ -14,36 +14,45 @@ class ApiController extends Controller
     {
         (new MovieService())->addMovieLikes($movieId);
 
-        return response()->json([
+        return response()->json(
             [
                 'success' => true,
                 'message' => 'Movie like has been added.',
-            ], 200]);
+            ],
+            200
+        );
     }
 
     public function createMovie(MoviePostRequest $request): JsonResponse
     {
         (new MovieService())->createMovie($request->title);
-        return response()->json([
+        return response()->json(
             [
                 'success' => true,
-                'message' => 'Movie has been added.',
-            ], 200]);
+                'message' => 'Movie has been added.'
+            ],
+            200
+        );
     }
 
     public function getMovies(): JsonResponse
     {
         $movies = (new MovieService())->getAllMovies();
         return response()->json(
-            [['success' => true,
-                'movies' => $movies], 200
-            ]
+            [
+                'success' => true,
+                'movies' => $movies
+            ],
+            200
         );
     }
 
     public function deleteMovies(): JsonResponse
     {
          (new MovieService())->deleteMovies();
-        return response()->json(['success' => true, 200]);
+        return response()->json(
+            ['success' => true],
+            200
+        );
     }
 }
