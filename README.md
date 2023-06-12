@@ -16,7 +16,7 @@ php -v
 composer -V
 ```
 ```bash
-git -V
+git -v
 ```
 In case you don't, you can use [Homebrew](https://brew.sh/) (package manager for Mac) to install all requirements.
 
@@ -58,5 +58,38 @@ composer install
 php artisan serve
 ```
 
-8. That is it. Enjoy!
+8. Server will be running on: http://127.0.0.1:8000  
+
+## INSTRUCTIONS
+
+### FRONT END
+You can use the frontend to navigate the web page:
+- Home page: http://127.0.0.1:8000  
+- View movie cards and add a Like: http://localhost:8000/movieCards 
+- Add a movie: http://localhost:8000/addMovie
+
+
+### API ENDPOINTS
+You can use the api to perform certain actions:
+
+- Add a movie:
+```bash
+curl --location 'http://localhost:8000/api/movie' \
+--header 'Content-Type: application/json' \
+--data '{"title": "This is the best movie name."}'
+```
+- Get all movies:
+```bash
+curl --location 'http://localhost:8000/api/movies'
+```
+
+### BONUS ENDPOINTS
+- Add movie like:
+```bash
+curl --location --request POST 'http://localhost:8000/api/movie/likes?movieId=123456'
+```
+- Delete all movies:
+```bash
+curl --location --request DELETE 'http://localhost:8000/api/movies'
+```
 
