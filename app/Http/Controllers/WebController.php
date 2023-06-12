@@ -10,6 +10,6 @@ class WebController extends Controller
     public function getMovies(): View
     {
         $movies = (new MovieService())->getAllMovies();
-        return view('viewMovieCards', $movies);
+        return view('viewMovieCards', compact('movies'));
     }
 }
