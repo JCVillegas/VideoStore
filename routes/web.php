@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
-Route::view('/videoCatalog', 'viewMovieCatalog');
+Route::view('/videoMovieCards', 'viewMovieCards');
 Route::view('/newMovie', 'newMovie');
