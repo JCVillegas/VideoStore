@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>VideoStore | Add New Movie</title>
+    <title>VideoStore | Movie Cards</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
 </head>
 <body>
-
 <div class="container">
     <div class="card bg-light mt-3">
         <div class="card-header">
             @include('nav-bar')
         </div>
-        <div class="card-body">
-            <form id="ajax-form" action="{{ route('movie.createMovie') }}">
-                {{  dd($movies)}}
-
-                @foreach ($movies as $movie)
-                    <li>Id: {{ $movie['title']}}</li>
-                @endforeach
-                <div class="alert alert-danger print-error-msg" style="display:none">
-                    <ul></ul>
+        @foreach ($movies as $movie)
+            <div class="card-deck">
+                <div class="card text-center" style="width: 10rem;">
+                    <div class="card-header">{{ $movie['title']}}</div>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Likes {{ $movie['likes']}}</a>
+                    </div>
                 </div>
-                <div id="alertSuccess" class="alert alert-primary" role="alert"></div>
-                <div id="alertError" class="alert alert-danger" role="alert"> </div>
-            </form>
-        </div>
+            </div>
+        @endforeach
+            <div class="alert alert-danger print-error-msg" style="display:none"></div>
+            <div id="alertSuccess" class="alert alert-primary" role="alert"></div>
+            <div id="alertError" class="alert alert-danger" role="alert"> </div>
     </div>
 </div>
-
-
 </body>
 </html>
+
 <script type="text/javascript">
     clearAlertBox();
     $('#ajax-form').submit(function(e) {
