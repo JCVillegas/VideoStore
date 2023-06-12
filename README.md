@@ -1,5 +1,10 @@
 ## Description
 Rest API Video Content Challenge
+### Tools used:
+- Backend: Laravel (PHP Framework)
+- FrontEnd: Laravel Blade Engine (HTML,Javascript, CSS)
+- Memory store: Laravel Memcached
+
 ## Requirements
 
 - [PHP](https://www.php.net/) V 8.2
