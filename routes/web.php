@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
-Route::view('/newMovie', 'newMovie');
+Route::view('/addMovie', 'addMovie');
 Route::get('movieCards', [WebController::class, 'getMovies']);
