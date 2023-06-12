@@ -22,9 +22,9 @@ class ApiController extends Controller
         );
     }
 
-    public function createMovie(MoviePostRequest $request): JsonResponse
+    public function addMovie(MoviePostRequest $request): JsonResponse
     {
-        (new MovieService())->createMovie($request->title);
+        (new MovieService())->addMovie($request->title);
         return response()->json(
             [
                 'success' => true,

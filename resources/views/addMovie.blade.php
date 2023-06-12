@@ -14,7 +14,7 @@
             @include('nav-bar')
         </div>
         <div class="card-body">
-            <form id="ajax-form" action="{{ route('movie.createMovie') }}">
+            <form id="ajax-form" action="{{ route('movie.addMovie') }}">
                 <div class="alert alert-danger print-error-msg" style="display:none">
                     <ul></ul>
                 </div>

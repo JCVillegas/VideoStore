@@ -10,7 +10,7 @@ class MovieService
     public const KEY_MOVIE_COUNTER = 'movieCounter';
 
     // Public Methods
-    public function createMovie($movieTitle): void
+    public function addMovie($movieTitle): void
     {
         $this->incrementMovieCounter();
         $newMovieKey   = self::KEY_MOVIE_NUMBER . $this->getMovieCounter();
