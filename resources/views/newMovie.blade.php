@@ -58,6 +58,11 @@
                     $('#alertError').show();
                     $("#alertError").append(response.error.title);
                 }
+                else
+                {
+                    $('#alertSuccess').show();
+                    $("#alertSuccess").append(response.message);
+                }
 
 
             },
@@ -68,6 +73,7 @@
     function clearAlertBox()
     {
         $('#alertSuccess').hide();
+        $("#alertSuccess").empty();
         $('#alertError').hide();
         $("#alertError").empty();
     }
