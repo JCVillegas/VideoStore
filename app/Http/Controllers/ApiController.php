@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MoviePostLikeRequest;
 use App\Http\Requests\MoviePostRequest;
 use App\Services\MovieService;
+use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
 class ApiController extends Controller
@@ -13,19 +14,28 @@ class ApiController extends Controller
     {
         (new MovieService())->addMovieLikes($movieId);
 
-        return response()->json(['success' => 'success', 200]);
+        return response()->json([
+            [
+                'success' => true,
+                'message' => 'Movie like has been added.',
+            ], 200]);
     }
 
     public function createMovie(MoviePostRequest $request): JsonResponse
     {
-        return (new MovieService())->createMovies($request->title);
+        (new MovieService())->createMovie($request->title);
+        return response()->json([
+            [
+                'success' => true,
+                'message' => 'Movie has been added.',
+            ], 200]);
     }
 
     public function getMovies(): JsonResponse
     {
         $movies = (new MovieService())->getAllMovies();
         return response()->json(
-            [['success' => 'success',
+            [['success' => true,
                 'movies' => $movies], 200
             ]
         );
@@ -34,6 +44,6 @@ class ApiController extends Controller
     public function deleteMovies(): JsonResponse
     {
          (new MovieService())->deleteMovies();
-        return response()->json(['success' => 'success', 200]);
+        return response()->json(['success' => true, 200]);
     }
 }
