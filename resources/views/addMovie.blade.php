@@ -19,8 +19,8 @@
                     <ul></ul>
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Movie Name:</label>
-                    <input type="text" id="title" class="form-control" placeholder="Name">
+                    <label for="name" class="form-label">Movie Title:</label>
+                    <input type="text" id="title" class="form-control" placeholder="title">
                 </div>
                 <div id="alertSuccess" class="alert alert-primary" role="alert"></div>
                 <div id="alertError" class="alert alert-danger" role="alert"> </div>
